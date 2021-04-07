@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+.card{
+  padding:10%;
+}
+
+select{
+  width: 100%;
+}
+

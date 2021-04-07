@@ -1,0 +1,33 @@
+<div class="container card" *ngIf="assignment">
+  <h4>Edition de l'assignment {{assignment.nom}}</h4>
+  <form ngForm class="form">
+    <mat-form-field>
+      <input matInput placeholder="Edition du nom" [(ngModel)]="nomassignment" name="assignment-name">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="number" matInput placeholder="Edition du note" [(ngModel)]="noteassignment" name="assignment-note">
+    </mat-form-field>
+    <mat-list-item role="listitem">
+      <mat-form-field style="width: 100%;">
+        <mat-label>Select Matiere</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="matiere">
+          <mat-option *ngFor="let matiere of matieres" [value]="matiere.value">
+            {{matiere.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-list-item>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Edition de la date" [(ngModel)]="dateDeRendu" name="date">
+      <mat-datepicker-toggle matSuffix [for]="picker">
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Remarque du note" [(ngModel)]="remarqueassignment" name="assignment-remarque">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="onSaveAssignment()">
+      Update
+    </button>
+  </form>
+</div>

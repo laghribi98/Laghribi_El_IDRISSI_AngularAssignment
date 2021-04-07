@@ -1,0 +1,26 @@
+<!-- <h1>
+  <nav>
+    <a routerLink="/home">{{titre}}</a>
+  </nav>
+</h1>
+
+
+ -->
+<!--
+<app-assignments></app-assignments>
+-->
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened class="left-bar">
+      <img src="assets/angular-logo.png" width="190" height="80" class="d-inline-block align-top" alt="">
+    <p><button mat-flat-button color="primary" (click)="peuplerLaBase();">Peupler la base</button>
+      <mat-slide-toggle color="primary" (click)="login()">Log In</mat-slide-toggle>
+    </p>
+  </mat-drawer>
+  <mat-drawer-content>
+      <mat-toolbar class="nav-mean">
+        <span routerLink="/home">MEAN STACK</span>
+      </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+

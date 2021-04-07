@@ -1,0 +1,94 @@
+<!-- <form ngForm class="form" #assignmentForm>
+  <mat-form-field>
+    <input matInput placeholder="Entrez un nom" [(ngModel)]="nomDevoir" name="nom">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="datepicker" [(ngModel)]="dateDeRendu" name="date">
+
+    <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+    <mat-datepicker #datepicker></mat-datepicker>
+
+  </mat-form-field>
+
+  <button mat-stroked-button class="btn-block" color="primary" (click)="onSubmit($event); assignmentForm.reset();">
+    Ajouter un devoir
+  </button>
+</form> -->
+<div class="container">
+<mat-vertical-stepper [linear]="isLinear" #stepper style="height: 700px">
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Fill out Assignement</ng-template>
+        
+        <mat-list role="list">
+          <mat-list-item role="listitem">
+            <mat-form-field>
+              <mat-label>Libelle</mat-label>
+              <input matInput placeholder="Libelle" formControlName="firstCtrl" required>
+            </mat-form-field>
+          </mat-list-item>
+          <br>
+          <br>
+          <mat-list-item role="listitem">
+            <mat-form-field>
+              <mat-label>Eleve</mat-label>
+              <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+            </mat-form-field>
+          </mat-list-item>
+        </mat-list>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Fill out Matiere</ng-template>
+        <mat-list role="list">
+            <mat-list-item role="listitem"> 
+              <mat-form-field>
+                <mat-label>Select Matiere</mat-label>
+                <mat-select [(ngModel)]="selectedValue" name="matiere">
+                  <mat-option *ngFor="let matiere of matieres" [value]="matiere.value">
+                    {{matiere.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            </mat-list-item>
+            <br>
+            <br>
+            <mat-list-item role="listitem">
+              <mat-form-field>
+                <mat-label>Note</mat-label>
+                <input type="number" matInput formControlName="secondCtrl"
+                        required min="0" max="20">
+              </mat-form-field>
+            </mat-list-item>
+            <br>
+            <br>
+            <mat-list-item role="listitem">
+              <mat-form-field>
+                <mat-label>Remarque</mat-label>
+                <input matInput formControlName="secondCtrl"
+                        required>
+              </mat-form-field>
+            </mat-list-item>
+          </mat-list>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Save</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+</div>

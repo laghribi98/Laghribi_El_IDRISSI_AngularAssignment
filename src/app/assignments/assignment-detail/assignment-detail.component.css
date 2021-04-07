@@ -1,0 +1,22 @@
+.container {
+  margin: 20px;
+}
+
+button {
+  width: 10%;
+  margin: 7%;
+}
+
+#bottom {
+  margin-top: 10px;
+}
+
+mat-card {
+  width: 70%;
+  margin: 0 auto;
+}
+
+
+#div-header{
+  width: 100%;
+}

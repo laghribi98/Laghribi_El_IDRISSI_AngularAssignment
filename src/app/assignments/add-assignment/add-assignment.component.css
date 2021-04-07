@@ -1,0 +1,11 @@
+.form {
+  padding-top: 100px;
+  width: 50%;
+  margin: 0 auto;
+}
+mat-form-field{
+  width: 100%;
+}
+.btn-block{
+  width: 100%;
+}

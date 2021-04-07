@@ -1,0 +1,41 @@
+<div class="container">
+  <mat-card *ngIf="assignmentTransmis">
+    <div class="row">
+      <div class="col-md-10">
+
+      </div>
+      <div class="col-md-2">
+        <div class="div-header">
+          <img id="iconProf" src="favicon.ico"/>
+        </div>
+      </div>
+    </div>
+    <mat-card-title>Titre : {{assignmentTransmis.nom}}</mat-card-title>
+    <mat-card-subtitle>Date Rendu : {{assignmentTransmis.dateDeRendu | date}}</mat-card-subtitle>
+
+    <div style="text-align: center">
+      <img
+        src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80"
+        width="500">
+      <h2>Libelle Matière</h2>
+    </div>
+    <p *ngIf="!assignmentTransmis.rendu" style="color: red">
+        Assignement pas Rendu
+    </p>
+    <mat-card-subtitle>Note : 17.75</mat-card-subtitle>
+    <mat-card-subtitle>Remarque : Tres Bien</mat-card-subtitle>
+
+    <div id="bottom">
+      <button mat-flat-button color="primary" *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()">
+          Rendu
+      </button>
+      <button mat-flat-button color="warn" [disabled]="!loggedIn()" (click)="onClickEdit()">
+        EDIT
+      </button>
+
+      <button mat-flat-button color="warn" [disabled]="!loggedIn()" (click)="onDelete()">
+        DELETE
+      </button>
+    </div>
+  </mat-card>
+</div>
